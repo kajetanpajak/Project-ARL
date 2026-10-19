@@ -39,14 +39,14 @@ docker run -it --init \
     --gpus all \
     --network host \
     --name px4 \
-    --workdir /workspace \
+    --workdir /home/ubuntu/workspace \
     --env "DISPLAY=$DISPLAY" \
     --env QT_X11_NO_MITSHM=1 \
     --env XAUTHORITY=/tmp/docker.xauth \
     --env NVIDIA_DRIVER_CAPABILITIES=graphics,utility,compute,display \
     --mount type=bind,source=/tmp/.X11-unix,target=/tmp/.X11-unix,readonly \
     --mount "type=bind,source=$XAUTH,target=/tmp/docker.xauth,readonly" \
-    --mount "type=bind,source=$REPO_ROOT,target=/workspace" \
+    --mount "type=bind,source=$REPO_ROOT,target=/home/ubuntu/workspace" \
     --user ubuntu \
     px4-jazzy \
     /bin/bash
